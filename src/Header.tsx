@@ -4,13 +4,13 @@ import PageHeading from "./PageHeading";
 import Pattern from "./Pattern";
 
 
-export default function Header() {
+export default function Header({handleAddToList}:{handleAddToList:(text:string)=>void}) {
   return (
     <header>
       <Pattern/>
       <Logo/>
       <PageHeading/>
-      <FeedBackForm/>
+      <FeedBackForm handleAddToList={handleAddToList}/>
     </header>
   )
 }

@@ -1,14 +1,20 @@
 import { useState } from "react"
 
-export default function FeedBackForm() {
+export default function FeedBackForm({handleAddToList}:{handleAddToList:(text:string)=>void}) {
   const [text,setText] = useState("");
   const handleChange = (e:React.ChangeEvent<HTMLTextAreaElement>)=>{
               const newText = e.target.value;
               if(newText.length>150) return;
-              setText(newText );
+              setText(newText);
             }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleAddToList(text);
+    setText(""); // Clear text after submitting
+  };
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
         <textarea  
             value={text} id="feedback-textarea" placeholder="blabla" spellCheck={false}
             onChange={handleChange}

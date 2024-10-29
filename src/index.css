@@ -36,6 +36,7 @@ button {
 /* UTILITIES */
 .u-bold {
   font-weight: 600;
+  color: #808080;
 }
 
 .u-medium {
@@ -535,13 +536,13 @@ form button span::selection {
 .footer {
   position: absolute;
   transform: rotate(-90deg);
-  left: -225px;
-  bottom: 174px;
+  left: -120px;
+  bottom: 58px;
 }
 
 /* COPYRIGHT */
 .footer > small {
-  color: #a6adb5;
+  color: #808080;
   font-size: 11px;
 }
 

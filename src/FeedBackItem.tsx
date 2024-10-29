@@ -1,22 +1,17 @@
 // Type Usage in React
 // In React, components often receive props as a single parameter. Here, FeedBackItem is a component that’s receiving the data about a feedback item wrapped in a feedbackItem property, like so:
 
+import { TFeedBackItem } from "./lib/type"
+
 // javascript
 // Copy code
 // <FeedBackItem feedbackItem={feedbackItem} />
 // So we create FeedbackItemProps to describe the structure of the props, making it clear that the props contain a feedbackItem of type FeedBackItem.
 
-type FeedBackItem = {
-  id : number;
-  upvoteCount: number;
-  badgeLetter: string;
-  company: string;
-  text: string;
-  daysAgo: number;
-}
+
 
 type FeedbackItemProps  = {
-    feedbackItem: FeedBackItem
+    feedbackItem: TFeedBackItem
 }
 
 export default function FeedBackItem({feedbackItem}: FeedbackItemProps
@@ -42,6 +37,7 @@ export default function FeedBackItem({feedbackItem}: FeedbackItemProps
                 {feedbackItem.text}
               </p>
             </div>
+            <p>{feedbackItem.daysAgo===0 ? 'NEW':`${feedbackItem.daysAgo}d`}</p>
     </li>
   )
 }
