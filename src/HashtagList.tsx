@@ -1,15 +1,13 @@
-export default function HashtagList() {
+export default function HashtagList({unique,handleOnClickHashtag}: {unique: string[], handleOnClickHashtag: (tag:string)=>void}) {
   return (
     <ul className="hashtags">
-      <li>
-        <button>#ByteGrad</button>
-      </li>
-      <li>
-        <button>#Nike</button>
-      </li>
-      <li>
-        <button>#McDonald's</button>
-      </li>
+      {
+        unique.map((tag, index)=> (
+          <li key={index}>
+            <button onClick={()=>handleOnClickHashtag(tag)}>#{tag}</button>
+          </li>
+        ))
+      }
     </ul>
   )
 }
